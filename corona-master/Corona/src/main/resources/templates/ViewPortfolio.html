@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="shareholder.css" />
+<head>
+<meta charset="ISO-8859-1">
+<title>Portfolio</title>
+</head>
+<body>
+	<div class="page-container">
+		<div class="row">
+			<div class="col col1 box2">
+				<h1>Current Shares</h1>
+			</div>
+
+			<div class="col col2 box1">
+				<h2>
+					<a href="Shareholder">Back to Dash</a>
+				</h2>
+			</div>
+
+			<div class="col col2 last-col box1">
+				<h2>
+					<a href="Wallet">View Wallet</a>
+				</h2>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col col1">
+				<h3>
+					<a href="ViewShares">View All Shares</a>
+				</h3>
+				<h3>
+					<a href="ShareholderTransactions">View Transactions</a>
+				</h3>
+				<h3>Viewing owned Shares:</h3>
+			</div>
+		</div>
+
+
+		<div class="row">
+			<table class="sharesPortfolio">
+
+				<tr class="tablehead">
+					<th>Quantity</th>
+					<th>Share</th>
+				</tr>
+
+
+				<tr>
+					<td><ol th:each="shares : ${shareholer_shares}" th:text="${shares.quantity}" /></td>
+					<td><ol th:each="shares : ${shareholer_shares}" th:text="${shares.share_id}" /></td>
+				</tr>
+
+			</table>
+		</div>
+	</div>
+
+</body>
+</html>

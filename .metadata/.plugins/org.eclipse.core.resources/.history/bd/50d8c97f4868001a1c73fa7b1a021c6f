@@ -1,0 +1,74 @@
+package foo;
+
+import java.awt.BorderLayout;
+import java.awt.Button;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.BorderFactory;
+import javax.swing.Icon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class GUI implements ActionListener {
+	
+	private String topLeftPlacement;
+	private JLabel label;
+	private JFrame frame;
+	private JPanel panel;
+	
+	JButton buttonTopLeft = new JButton("Place here");
+	//buttonTopLeft.addActionListener(this);
+	JButton buttonMidLeft = new JButton("Mid Left Click");
+	JButton buttonBotLeft = new JButton("Bot Left Click");
+	JButton buttonTopMid = new JButton("Top Mid Click");
+	JButton buttonMidMid = new JButton("Mid Mid Click");
+	JButton buttonBotMid = new JButton("Bot Mid Click");
+	JButton buttonTopRight = new JButton("Top Right Click");
+	JButton buttonMidRight = new JButton("Mid Right Click");
+	JButton buttonBotRight = new JButton("Bot Right Click");
+	
+	public GUI() {
+		
+		frame = new JFrame();
+		
+		
+		label = new JLabel("Number of clicks: 0");
+		
+		JPanel panel = new JPanel();
+		panel.setBorder(BorderFactory.createEmptyBorder(30,30,10,30));
+		panel.setLayout(new GridLayout(4,3));
+		panel.add(buttonTopLeft);
+		panel.add(buttonTopMid);
+		panel.add(buttonTopRight);
+		panel.add(buttonMidLeft);
+		panel.add(buttonMidMid);
+		panel.add(buttonMidRight);
+		panel.add(buttonBotLeft);
+		panel.add(buttonBotMid);
+		panel.add(buttonBotRight);
+		panel.add(label);
+		
+		frame.add(panel, BorderLayout.CENTER);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setTitle("TicTacToe Game");
+		frame.pack();
+		frame.setVisible(true);
+		
+	}
+	
+	public static void main(String[] args) {
+		new GUI();
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+		topLeftPlacement = "X";
+		
+		
+	}
+}

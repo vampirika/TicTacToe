@@ -1,0 +1,122 @@
+package foo;
+
+import java.awt.BorderLayout;
+import java.awt.Button;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
+import javax.swing.BorderFactory;
+import javax.swing.Icon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class GUI implements ActionListener {
+	
+	private String topLeftPlacement;
+	private JLabel label;
+	private JFrame frame;
+	private JPanel panel;
+	private static JButton buttonTopLeft;
+	private JButton buttonMidLeft;
+	private JButton buttonBotLeft;
+	static ArrayList<Integer> playerOnePositions = new ArrayList<Integer>();
+	static ArrayList<Integer> playerTwoPositions = new ArrayList<Integer>();
+	
+	public GUI() {
+		
+		frame = new JFrame();
+		
+		buttonTopLeft = new JButton("Click counter");
+		buttonTopLeft.addActionListener(this);
+		buttonMidLeft = new JButton("Mid Left Click");
+		buttonMidLeft.addActionListener(this);
+		buttonBotLeft = new JButton("Bot Left Click");
+		buttonBotLeft.addActionListener(this);
+		JButton buttonTopMid = new JButton("Top Mid Click");
+		JButton buttonMidMid = new JButton("Mid Mid Click");
+		JButton buttonBotMid = new JButton("Bot Mid Click");
+		JButton buttonTopRight = new JButton("Top Right Click");
+		JButton buttonMidRight = new JButton("Mid Right Click");
+		JButton buttonBotRight = new JButton("Bot Right Click");
+		label = new JLabel("Number of clicks: 0");
+		
+		JPanel panel = new JPanel();
+		panel.setBorder(BorderFactory.createEmptyBorder(30,30,10,30));
+		panel.setLayout(new GridLayout(4,3));
+		panel.add(buttonTopLeft);
+		panel.add(buttonTopMid);
+		panel.add(buttonTopRight);
+		panel.add(buttonMidLeft);
+		panel.add(buttonMidMid);
+		panel.add(buttonMidRight);
+		panel.add(buttonBotLeft);
+		panel.add(buttonBotMid);
+		panel.add(buttonBotRight);
+		panel.add(label);
+		
+		frame.add(panel, BorderLayout.CENTER);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setTitle("TicTacToe Game");
+		frame.pack();
+		frame.setVisible(true);
+		
+	}
+	
+	public static void main(String[] args) {
+		new GUI();
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		placePiece(1,"player one");
+	}
+	
+	public static void placePiece(int position, String player) {
+
+		String symbol = "X";
+		if (player.equals("player one")) {
+			symbol = "X";
+			playerOnePositions.add(position);
+		} else if (player.equals("player two")) {
+			symbol = "O";
+			playerTwoPositions.add(position);
+		}
+
+		switch (position) {
+		case 1:
+			buttonTopLeft.setText(symbol);
+			break;
+		/*case 2:
+			gameBoard[0][2] = symbol;
+			break;
+		case 3:
+			gameBoard[0][4] = symbol;
+			break;
+		case 4:
+			gameBoard[2][0] = symbol;
+			break;
+		case 5:
+			gameBoard[2][2] = symbol;
+			break;
+		case 6:
+			gameBoard[2][4] = symbol;
+			break;
+		case 7:
+			gameBoard[4][0] = symbol;
+			break;
+		case 8:
+			gameBoard[4][2] = symbol;
+			break;
+		case 9:
+			gameBoard[4][4] = symbol;
+			break;*/
+		}
+
+	}
+
+	
+}

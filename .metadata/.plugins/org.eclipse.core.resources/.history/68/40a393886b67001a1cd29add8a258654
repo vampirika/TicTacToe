@@ -1,0 +1,17 @@
+package foo;
+
+public class TicTacToe {
+
+	public static void main(String[] args) {
+		
+		char [] [] gameBoard = {{' ', '|',' ','|',' '},
+								{'-', '+','-','+','-'},
+								{' ', '|',' ','|',' '},
+								{'-', '+','-','+','-'},
+								{' ', '|',' ','|',' '},};
+		
+		System.out.println(gameBoard);
+
+	}
+
+}
